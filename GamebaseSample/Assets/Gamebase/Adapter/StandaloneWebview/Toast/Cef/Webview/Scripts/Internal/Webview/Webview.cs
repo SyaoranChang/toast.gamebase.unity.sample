@@ -170,7 +170,7 @@ namespace Toast.Cef.Webview.Internal
 
             viewRect = rect;
 
-            texture.Resize((int)viewRect.width, (int)viewRect.height);
+            texture.Reinitialize((int)viewRect.width, (int)viewRect.height);
             textureBuffer = texture.GetPixels32();
 
             textureHandle.Free();
