@@ -1,6 +1,6 @@
 
 {
-    "useAndroid" : true,
+    "useAndroid" : false,
     "useIOS"     : false,
     "unity"      : {
         "fileName" : "sdk/gamebase-sdk",
@@ -32,9 +32,10 @@
             "adapters"                         : [
                 {
                     "name" : "WebView",
-                    "used" : true,
+                    "used" : false,
                     "canOnlyChooseEitherUnityOrNative" : false,
-                    "fileName"                         : "sdk/gamebase-adapter-etc-webview"
+                    "fileName"                         : "sdk/gamebase-adapter-etc-webview",
+                    "moreInfo"                         : "POPUP_025_MESSAGE"
                 }
             ]
         }
@@ -47,21 +48,21 @@
             "adapters"                         : [
                 {
                     "name" : "Facebook",
-                    "used" : true,
+                    "used" : false,
                     "canOnlyChooseEitherUnityOrNative" : true,
                     "fileName"                         : "com.toast.android.gamebase:gamebase-adapter-auth-facebook"
                 },
                 {
-                    "name" : "Google",
-                    "used" : true,
+                    "name" : "GPGS_V2",
+                    "used" : false,
                     "canOnlyChooseEitherUnityOrNative" : false,
-                    "fileName"                         : "com.toast.android.gamebase:gamebase-adapter-auth-google"
+                    "fileName"                         : "com.toast.android.gamebase:gamebase-adapter-auth-gpgs-v2"
                 },
                 {
-                    "name" : "Payco",
-                    "used" : true,
+                    "name" : "Google",
+                    "used" : false,
                     "canOnlyChooseEitherUnityOrNative" : false,
-                    "fileName"                         : "com.toast.android.gamebase:gamebase-adapter-auth-payco"
+                    "fileName"                         : "com.toast.android.gamebase:gamebase-adapter-auth-google"
                 },
                 {
                     "name" : "Naver",
@@ -92,6 +93,12 @@
                     "used" : false,
                     "canOnlyChooseEitherUnityOrNative" : false,
                     "fileName"                         : "com.toast.android.gamebase:gamebase-adapter-auth-weibo"
+                },
+                {
+                    "name" : "Payco",
+                    "used" : false,
+                    "canOnlyChooseEitherUnityOrNative" : false,
+                    "fileName"                         : "com.toast.android.gamebase:gamebase-adapter-auth-payco"
                 }
             ]
         },
@@ -101,33 +108,84 @@
             "adapters"                         : [
                 {
                     "name" : "IapGoogle",
-                    "used" : true,
+                    "used" : false,
                     "canOnlyChooseEitherUnityOrNative" : false,
                     "fileName"                         : "com.toast.android.gamebase:gamebase-adapter-purchase-google"
                 },
                 {
-                    "name" : "IapOnsStore",
+                    "name" : "IapOnestoreV17",
                     "used" : false,
                     "canOnlyChooseEitherUnityOrNative" : false,
                     "fileName"                         : "com.toast.android.gamebase:gamebase-adapter-purchase-onestore"
+                },
+                {
+                    "name" : "IapOnestoreV19",
+                    "used" : false,
+                    "canOnlyChooseEitherUnityOrNative" : false,
+                    "fileName"                         : "com.toast.android.gamebase:gamebase-adapter-purchase-onestore-v19",
+                    "moreInfo"                         : "POPUP_024_MESSAGE"
+                },
+                {
+                    "name": "IapOnestoreV21",
+                    "used": false,
+                    "canOnlyChooseEitherUnityOrNative": false,
+                    "fileName"                        : "com.toast.android.gamebase:gamebase-adapter-purchase-onestore-v21",
+                    "repositories"                    : ["https://repo.onestore.co.kr/repository/onestore-sdk-public"]
+                },
+                {
+                    "name" : "IapOnestoreExternal",
+                    "used" : false,
+                    "canOnlyChooseEitherUnityOrNative" : false,
+                    "fileName"                         : "com.toast.android.gamebase:gamebase-adapter-purchase-onestore-external"
                 },
                 {
                     "name" : "IapGalaxy",
                     "used" : false,
                     "canOnlyChooseEitherUnityOrNative" : false,
                     "fileName"                         : "com.toast.android.gamebase:gamebase-adapter-purchase-galaxy"
+                },
+                {
+                    "name" : "IapAmazon",
+                    "used" : false,
+                    "canOnlyChooseEitherUnityOrNative" : false,
+                    "fileName"                         : "com.toast.android.gamebase:gamebase-adapter-purchase-amazon"
+                },
+                {
+                    "name" : "IapHuawei",
+                    "used" : false,
+                    "canOnlyChooseEitherUnityOrNative" : false,
+                    "fileName"                         : "com.toast.android.gamebase:gamebase-adapter-purchase-huawei",
+                    "repositories"                     : ["https://developer.huawei.com/repo/"]
+                },
+                {
+                    "name" : "IapMyCard",
+                    "used" : false,
+                    "canOnlyChooseEitherUnityOrNative" : false,
+                    "fileName"                         : "com.toast.android.gamebase:gamebase-adapter-purchase-mycard"
                 }
             ]
         },
         "push"           : {
             "name" : "push",
-            "onlyOneCanBeSelectedFromCategory" : true,
+            "onlyOneCanBeSelectedFromCategory" : false,
             "adapters"                         : [
                 {
                     "name" : "FCM",
-                    "used" : true,
+                    "used" : false,
                     "canOnlyChooseEitherUnityOrNative" : false,
                     "fileName"                         : "com.toast.android.gamebase:gamebase-adapter-push-fcm"
+                },
+                {
+                    "name" : "ADM",
+                    "used" : false,
+                    "canOnlyChooseEitherUnityOrNative" : false,
+                    "fileName"                         : "com.toast.android.gamebase:gamebase-adapter-push-adm"
+                },
+                {
+                    "name" : "CustomReceiver",
+                    "used" : false,
+                    "canOnlyChooseEitherUnityOrNative" : false,
+                    "fileName"                         : "com.toast.android.gamebase:gamebase-adapter-push-notification"
                 }
             ]
         },
@@ -190,6 +248,12 @@
                     "used" : false,
                     "canOnlyChooseEitherUnityOrNative" : false,
                     "fileName"                         : "GamebaseAuthWeiboAdapter"
+                },
+                {
+                    "name" : "Payco",
+                    "used" : false,
+                    "canOnlyChooseEitherUnityOrNative" : false,
+                    "fileName"                         : "GamebaseAuthPaycoAdapter"
                 }
             ]
         },

@@ -77,7 +77,6 @@ namespace NhnCloud.GamebaseTools.SettingTool
 
                     ui.Initialize(
                         OnClickGamebaseSdkDownload,
-                        OnClickNaverCefePlugDownload,
                         OnClickSetting,
                         OnClickRemove
                     );
@@ -103,23 +102,6 @@ namespace NhnCloud.GamebaseTools.SettingTool
                 {
                     SettingToolLog.Error(error, GetType(), "OnClickGamebaseSdkDownload");
                 }
-            });
-        }
-
-        private void OnClickNaverCefePlugDownload()
-        {
-            settingTool.DownloadNaverCefePlug((error) =>
-            {
-                if (SettingTool.IsSuccess(error) == true)
-                {
-                    SettingToolLog.Debug("Naver Cefe Plug download was successful.", GetType(), "OnClickNaverCefePlugDownload");
-                }
-                else
-                {
-                    SettingToolLog.Error(error, GetType(), "OnClickNaverCefePlugDownload");
-                }
-
-                CloseEditorWindow();
             });
         }
 
@@ -213,7 +195,7 @@ namespace NhnCloud.GamebaseTools.SettingTool
         private void AdInitialize()
         {
             var imageDownloadPath = DataManager.GetData<SettingToolResponse.LocalFileInfo>(DataKey.LOCAL_FILE_INFO).ad.downloadPath;
-            var remoteUrl = Path.Combine(DataManager.GetData<string>(DataKey.CDN_URL), "GamebaseSettingTool/Ad/");
+            var remoteUrl = Path.Combine(DataManager.GetData<SettingToolResponse.Cdn>(DataKey.CDN).url, "GamebaseSettingTool/Ad/");
 
             Advertisement.Initialize(
                 window, 

@@ -16,6 +16,7 @@
         public string POPUP_OK;
         public string POPUP_CANCEL;
         public string POPUP_CLOSE;
+        public string POPUP_LINK;
 
         public string POPUP_001_MESSAGE;
         public string POPUP_002_MESSAGE;
@@ -40,6 +41,8 @@
         public string POPUP_021_MESSAGE;
         public string POPUP_022_MESSAGE;
         public string POPUP_023_MESSAGE;
+        public string POPUP_024_MESSAGE;
+        public string POPUP_025_MESSAGE;
 
         public string UI_TEXT_SETTING_TOOL_TITLE;
         public string UI_TEXT_DOWNLOAD_PATH;
@@ -59,21 +62,6 @@
         public string UI_TEXT_DOWNLOAD_SETTINGTOOL;
         public string UI_BUTTON_DOWNLOAD_SETTINGTOOL;
         public string UI_BUTTON_DEPENDENCIES_DETAIL;
-
-        public string EXTERNAL_SDK_SETTING_TITLE;
-        public string PLUG_SDK_SETTING_BUTTON;
-        public string PLUG_SDK_SETTING_TITLE;
-        public string PLUG_SDK_SETTING_MESSAGE;
-        public string PLUG_SDK_SETTING_INFOMATION_TITLE;
-        public string PLUG_SDK_SETTING_INFOMATION_BUTTON;
-        public string PLUG_SDK_DOWNLOAD_PROGRESS_TITLE;
-        public string PLUG_SDK_SETTING_DOWNLOAD_FILE_NAME;
-        public string PLUG_SDK_SETTING_PROGRESS;
-        public string PLUG_SDK_SETTING_POPUP_TITLE;
-        public string PLUG_SDK_SETTING_POPUP_MESSAGE;
-        public string PLUG_SDK_SETTING_POPUP_BUTTON_OK;
-        public string PLUG_SDK_SETTING_POPUP_BUTTON_CANCEL;
-        public string PLUG_SDK_ANDROIDMANIFEST_BACKUP_POPUP_TITLE;
-        public string PLUG_SDK_ANDROIDMANIFEST_BACKUP_POPUP_MESSAGE;
+        public string UI_TEXT_DOWNLOADED_VERSION;
     }
 }

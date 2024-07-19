@@ -187,14 +187,17 @@ namespace NhnCloud.GamebaseTools.SettingTool.Ui
             {
                 if (onClickSetting != null)
                 {
-                    if (EditorUtility.DisplayDialog(
-                        Multilanguage.GetString("POPUP_SETTING_TITLE"),
-                        Multilanguage.GetString("POPUP_009_MESSAGE"),
-                        Multilanguage.GetString("POPUP_OK"),
-                        Multilanguage.GetString("POPUP_CANCEL")) == true)
+                    EditorApplication.delayCall += () =>
                     {
-                        onClickSetting();
-                    }
+                        if (EditorUtility.DisplayDialog(
+                            Multilanguage.GetString("POPUP_SETTING_TITLE"),
+                            Multilanguage.GetString("POPUP_009_MESSAGE"),
+                            Multilanguage.GetString("POPUP_OK"),
+                            Multilanguage.GetString("POPUP_CANCEL")) == true)
+                        {
+                            onClickSetting();
+                        }
+                    };
                 }
             }
 
@@ -205,17 +208,20 @@ namespace NhnCloud.GamebaseTools.SettingTool.Ui
             
             if (GUILayout.Button(Multilanguage.GetString("UI_BUTTON_REMOVE"), GUILayout.Width(BUTTON_WIDTH), GUILayout.Height(BUTTON_HEIGHT)) == true)
             {
-                if (EditorUtility.DisplayDialog(
-                    Multilanguage.GetString("POPUP_REMOVE_TITLE"),
-                    Multilanguage.GetString("POPUP_010_MESSAGE"),
-                    Multilanguage.GetString("POPUP_OK"),
-                    Multilanguage.GetString("POPUP_CANCEL")) == true)
+                EditorApplication.delayCall += () =>
                 {
-                    if (onClickRemove != null)
+                    if (EditorUtility.DisplayDialog(
+                        Multilanguage.GetString("POPUP_REMOVE_TITLE"),
+                        Multilanguage.GetString("POPUP_010_MESSAGE"),
+                        Multilanguage.GetString("POPUP_OK"),
+                        Multilanguage.GetString("POPUP_CANCEL")) == true)
                     {
-                        onClickRemove();
+                        if (onClickRemove != null)
+                        {
+                            onClickRemove();
+                        }
                     }
-                }   
+                };
             }
             GUI.enabled = true;
         }
@@ -293,41 +299,75 @@ namespace NhnCloud.GamebaseTools.SettingTool.Ui
                                         if (GetAdapter(catogoryData.name, adapter.name, vo.android).used == true ||
                                             GetAdapter(catogoryData.name, adapter.name, vo.ios).used == true)
                                         {
-                                            if (EditorUtility.DisplayDialog(
-                                                Multilanguage.GetString("POPUP_DEPENDENCIES_TITLE"),
-                                                Multilanguage.GetString("POPUP_001_MESSAGE"),
-                                                Multilanguage.GetString("POPUP_OK"),
-                                                Multilanguage.GetString("POPUP_CANCEL")) == true)
+                                            EditorApplication.delayCall += () =>
                                             {
-                                                DeselecteAllAdaptersLikeAdapterName(catogoryData.name, adapter.name);
-                                            }
-                                            else
-                                            {
-                                                break;
-                                            }
+                                                if (EditorUtility.DisplayDialog(
+                                                    Multilanguage.GetString("POPUP_DEPENDENCIES_TITLE"),
+                                                    Multilanguage.GetString("POPUP_001_MESSAGE"),
+                                                    Multilanguage.GetString("POPUP_OK"),
+                                                    Multilanguage.GetString("POPUP_CANCEL")) == true)
+                                                {
+                                                    DeselecteAllAdaptersLikeAdapterName(catogoryData.name, adapter.name);
+                                                }
+                                            };
                                         }
                                     }
                                     else
                                     {
                                         if (GetAdapter(catogoryData.name, adapter.name, vo.unity).used == true)
                                         {
-                                            if (EditorUtility.DisplayDialog(
-                                                Multilanguage.GetString("POPUP_DEPENDENCIES_TITLE"),
-                                                (platformData == vo.android)?Multilanguage.GetString("POPUP_002_MESSAGE"): Multilanguage.GetString("POPUP_003_MESSAGE"),
-                                                Multilanguage.GetString("POPUP_OK"),
-                                                Multilanguage.GetString("POPUP_CANCEL")) == true)
+                                            EditorApplication.delayCall += () =>
                                             {
-                                                DeselecteAllAdaptersLikeAdapterName(catogoryData.name, adapter.name);
-                                            }
-                                            else
-                                            {
-                                                break;
-                                            }
+                                                if (EditorUtility.DisplayDialog(
+                                                    Multilanguage.GetString("POPUP_DEPENDENCIES_TITLE"),
+                                                    (platformData == vo.android)?Multilanguage.GetString("POPUP_002_MESSAGE"): Multilanguage.GetString("POPUP_003_MESSAGE"),
+                                                    Multilanguage.GetString("POPUP_OK"),
+                                                    Multilanguage.GetString("POPUP_CANCEL")) == true)
+                                                {
+                                                    DeselecteAllAdaptersLikeAdapterName(catogoryData.name, adapter.name);
+                                                }
+                                            };
                                         }
                                     }
                                 }
 
                                 adapter.used = !adapter.used;
+
+                                if (string.IsNullOrEmpty(adapter.moreInfo) == false && adapter.used == true)
+                                {
+                                    EditorApplication.delayCall += () =>
+                                    {
+                                        if (adapter.name.Equals("WebView") == true)
+                                        {
+#if UNITY_EDITOR_OSX
+    #if UNITY_2021_3_OR_NEWER && !(UNITY_2021_3_1 || UNITY_2021_3_2 || UNITY_2021_3_3 || UNITY_2021_3_4 || UNITY_2021_3_5 || UNITY_2021_3_6 || UNITY_2021_3_7 || UNITY_2021_3_8 || UNITY_2021_3_9 || UNITY_2021_3_10 || UNITY_2021_3_11 || UNITY_2021_3_12 || UNITY_2021_3_13 || UNITY_2021_3_14 || UNITY_2021_3_15 || UNITY_2021_3_16 || UNITY_2021_3_17 || UNITY_2021_3_18 || UNITY_2021_3_19 || UNITY_2021_3_20 || UNITY_2021_3_21 || UNITY_2021_3_22 || UNITY_2021_3_23 || UNITY_2021_3_24 || UNITY_2021_3_25 || UNITY_2021_3_26 || UNITY_2021_3_27 || UNITY_2021_3_28 || UNITY_2021_3_29 || UNITY_2021_3_30 || UNITY_2021_3_31 || UNITY_2021_3_32 || UNITY_2021_3_33 || UNITY_2021_3_34)
+                                            // Unity 2021.3.35f1 and later.
+                                            return;
+    #else
+                                            if (EditorUtility.DisplayDialog(
+                                                Multilanguage.GetString("POPUP_DEPENDENCIES_TITLE"),
+                                                Multilanguage.GetString(adapter.moreInfo),
+                                                Multilanguage.GetString("POPUP_OK")) == true)
+                                            {
+                                                // Deselected.
+                                                adapter.used = !adapter.used;
+                                            }
+    #endif
+#endif
+                                        }
+                                        else
+                                        {
+                                            if (EditorUtility.DisplayDialog(
+                                                Multilanguage.GetString("POPUP_DEPENDENCIES_TITLE"),
+                                                Multilanguage.GetString(adapter.moreInfo),
+                                                Multilanguage.GetString("POPUP_LINK"),
+                                                Multilanguage.GetString("POPUP_CANCEL")) == true)
+                                            {
+                                                Application.OpenURL("https://github.com/ONE-store/onestore_iap_release/tree/iap19-release/android_app_sample/app/libs");
+                                            }
+                                        }
+                                    };
+                                }
                             }
 
 

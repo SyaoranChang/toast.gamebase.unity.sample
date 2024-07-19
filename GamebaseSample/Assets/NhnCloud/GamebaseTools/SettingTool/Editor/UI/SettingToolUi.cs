@@ -32,7 +32,7 @@ namespace NhnCloud.GamebaseTools.SettingTool.Ui
             //------------------------------
             // header
             //------------------------------
-            headerArea = new Rect(0, 0, 1024, 200);
+            headerArea = new Rect(0, 0, 1024, 230);
 
             //------------------------------
             // copyright
@@ -53,12 +53,11 @@ namespace NhnCloud.GamebaseTools.SettingTool.Ui
 
         public void Initialize(
             SettingToolCallback.VoidDelegate onClickGamebaseSdkDownload,
-            SettingToolCallback.VoidDelegate onClickNaverCefePlugDownload,
             SettingToolCallback.VoidDelegate onClickSetting,
             SettingToolCallback.VoidDelegate onClickRemove)
         {
             header = new Header(headerArea);            
-            header.Initialize(onClickGamebaseSdkDownload, onClickNaverCefePlugDownload);
+            header.Initialize(onClickGamebaseSdkDownload);
 
             sdkSetting = new SdkSetting(sdkSettingArea);
             sdkSetting.Initialize(onClickSetting, onClickRemove);
@@ -107,13 +106,17 @@ namespace NhnCloud.GamebaseTools.SettingTool.Ui
         {
             this.downloadFileName = downloadFileName;
             this.progress = progress;
+
+            if (string.IsNullOrEmpty(downloadFileName) == true || progress == 0)
+            {
+                EditorUtility.ClearProgressBar();
+            }
         }
 
         private void DrawProgress()
         {
             if (string.IsNullOrEmpty(downloadFileName) == true || progress == 0)
             {
-                EditorUtility.ClearProgressBar();
                 return;
             }
 
