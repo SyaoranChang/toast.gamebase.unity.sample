@@ -1,7 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <dependencies>
   <androidPackages>
+    <androidPackage spec="com.toast.android.gamebase:gamebase-sdk:2.66.0" />
+    <androidPackage spec="com.toast.android.gamebase:gamebase-adapter-purchase-google:2.66.0" />
+    <androidPackage spec="com.toast.android.gamebase:gamebase-adapter-push-fcm:2.66.0" />
   </androidPackages>
   <iosPods>
+    <iosPod name="Gamebase" version="2.65.1" />
+    <iosPod name="GamebaseAuthAppleidAdapter" version="2.65.1" />
+    <iosPod name="GamebasePurchaseIAPAdapter" version="2.65.1" />
+    <iosPod name="GamebasePushAdapter" version="2.65.1" />
   </iosPods>
 </dependencies>

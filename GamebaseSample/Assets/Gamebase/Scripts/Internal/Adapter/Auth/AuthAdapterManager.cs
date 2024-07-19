@@ -179,9 +179,8 @@ namespace Toast.Gamebase.Internal
         public bool IsSupportedIDP(string providerName)
         {
 #if UNITY_EDITOR
-            return providerName == GamebaseAuthProvider.GUEST || 
-                   providerName == GamebaseAuthProvider.FACEBOOK ||
-                   providerName == "ongame";
+            return providerName == GamebaseAuthProvider.GUEST ||
+                   providerName == GamebaseAuthProvider.FACEBOOK;
 #else
     #if UNITY_ANDROID
             return providerName == GamebaseAuthProvider.FACEBOOK;
@@ -189,11 +188,9 @@ namespace Toast.Gamebase.Internal
             return providerName == GamebaseAuthProvider.FACEBOOK;
     #elif UNITY_WEBGL
             return providerName == GamebaseAuthProvider.GUEST || 
-                   providerName == GamebaseAuthProvider.FACEBOOK || 
-                   providerName =="ongame";
+                   providerName == GamebaseAuthProvider.FACEBOOK;
     #elif UNITY_STANDALONE
-            return providerName == GamebaseAuthProvider.GUEST ||
-                   providerName == "ongame";
+            return providerName == GamebaseAuthProvider.GUEST;
     #endif
 #endif
         }

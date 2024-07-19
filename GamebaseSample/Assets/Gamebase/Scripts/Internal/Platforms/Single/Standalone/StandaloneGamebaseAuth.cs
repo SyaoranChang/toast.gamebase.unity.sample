@@ -225,11 +225,12 @@ namespace Toast.Gamebase.Internal.Single.Standalone
 
         private bool IsSupportedIDPByWebview(string providerName)
         {
-#if UNITY_EDITOR_WIN || UNITY_STANDALONE_WIN
+#if UNITY_EDITOR_WIN || UNITY_STANDALONE
             return true;
-
-#elif UNITY_FACEBOOK || UNITY_EDITOR_OSX || UNITY_STANDALONE_OSX
+#elif UNITY_FACEBOOK
             return providerName == GamebaseAuthProvider.GUEST;
+#else
+            return false;
 #endif
         }
 

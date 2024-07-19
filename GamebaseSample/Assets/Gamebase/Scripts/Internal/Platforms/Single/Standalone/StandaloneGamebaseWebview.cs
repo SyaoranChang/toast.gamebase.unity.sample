@@ -12,7 +12,7 @@ namespace Toast.Gamebase.Internal.Single.Standalone
             Domain = typeof(StandaloneGamebaseWebview).Name;
         }
 
-#if UNITY_EDITOR_WIN || UNITY_STANDALONE_WIN
+#if UNITY_EDITOR_WIN || UNITY_STANDALONE
         public override void ShowWebView(string url, GamebaseRequest.Webview.GamebaseWebViewConfiguration configuration = null, int closeCallbackHandle = -1, List<string> schemeList = null, int schemeEventHandle = -1)
         {
             GamebaseCallback.ErrorDelegate closeCallback = null;
